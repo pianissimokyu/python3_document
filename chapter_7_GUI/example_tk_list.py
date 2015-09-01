@@ -18,7 +18,7 @@ class Example(Frame):
 
         self.pack(fill=BOTH, expand=1)
 
-        acts = ['Scarlett Johansson', 'Rachel Weiss',
+        acts = ['임덕규','Scarlett Johansson', 'Rachel Weiss',
             'Natalie Portman', 'Jessica Alba']
 
         lb = Listbox(self)

@@ -1,0 +1,395 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 모듈\n",
+    "## 모듈이란\n",
+    "* 하나의 파일은 하나의 모듈이다.\n",
+    "* 관련된 모듈 여러 개를 하나로 묶은 단위를 패키지라고 부른다.\n",
+    "* 모듈은 어떠한 코드로도 작성할 수 있다.\n",
+    "    * 함수 모음\n",
+    "    * 클래스 모음\n",
+    "    * 변수 모음\n",
+    "* 모듈은 서로 연관된 작업을 하는 코드들의 모임으로 구성\n",
+    "\n",
+    "### 제공자에 따른 모듈 명칭\n",
+    "* 표준 모듈\n",
+    "    * 파이썬 설치시 기본으로 제공되는 모듈\n",
+    "    * 예) time, math, random\n",
+    "* 사용자 생성 모듈\n",
+    "    * 여러분이 만드는 모듈\n",
+    "* 서드 파티 모듈\n",
+    "    * 협력업체나 개인이 만들어서 제공하는 모듈\n",
+    "\n",
+    "### 모듈 제작\n",
+    "* 필요로 하는 변수나 함수를 정의한 파일을 만드는 것 \n",
+    "* 확장자는 py이어야 한다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# FILE : mymath.py\n",
+    "mypi = 3.14\n",
+    "\n",
+    "def add(a, b):\n",
+    "    return a + b\n",
+    "\n",
+    "def area(r):\n",
+    "    return mypi * r *r\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'add', 'area', 'mypi']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import mymath  # 저장된 모듈을 불러온다\n",
+    "print(dir(mymath))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3.14"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mymath.mypi  # 모듈에 있는 변수"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "78.5"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mymath.area(5)  # 모듈에 있는 함수 사용"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['In', 'Out', '_', '_2', '_4', '_5', '_6', '__', '___', '__builtin__', '__builtins__', '__doc__', '__loader__', '__name__', '__package__', '__spec__', '_dh', '_i', '_i1', '_i2', '_i3', '_i4', '_i5', '_i6', '_i7', '_ih', '_ii', '_iii', '_oh', '_sh', 'add', 'area', 'exit', 'get_ipython', 'mymath', 'mypi', 'quit']\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(dir())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### mypi는 어느 네임스페이스에 있는가?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "75"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "area(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3.14"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mypi "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mypi = 3\n",
+    "mypi"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3.14"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mymath.mypi"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 모듈 검색 경로\n",
+    "* sys 모듈의 path 에서 찾을 수 있다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['', '/Library/Frameworks/Python.framework/Versions/3.4/lib/python34.zip', '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4', '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/plat-darwin', '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/lib-dynload', '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages', '/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/IPython/extensions']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "print(sys.path)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 가져오기 (import)\n",
+    "* 파이썬의 가져오기는 '절대 가져오기'와 '상대 가져오기' 두 가지가 있다."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```python\n",
+    "import math  # 모듈의 '이름'을 가져왔으므로 math.sin(math.pi) 형태로 사용\n",
+    "from math import sin, cos, pi  # 모듈에서 특정 이름들만 '현재이름공간'에 가져온다.\n",
+    "from math import *  # 모듈에 정의된 모든 이름을 현재 이름 공간으로 가져온다.\n",
+    "import numpy as np  # 모듈 이름을 다른 이름으로 쓰고자 할 때\n",
+    "from re import sub as substitue  # 모듈에서 정의한 이름을 다른 이름으로 쓰고자 할 때\n",
+    "from thinker import (Tk, Frame, Button, Entry,\n",
+    "                    LEFT, NORMAL)  # 괄호를 이용할 수도 있다.\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### __name__ 변수\n",
+    "* 모듈은 모듈의 이름을 나타내는 내장 변수 __name__을 갖는다.\n",
+    "* 이 변수는 일반적으로는 자신의 모듈 이름을 가진다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'math'"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import math\n",
+    "math.__name__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'__main__'"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "__name__ # 최상위 영역의 __name__"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* 따라서 이것을 잘 사용하면 최상위인지 가져온 모듈인지 구분할 수 있다.\n",
+    "* 다른 모듈에서 가져올 때는 실행되지 않는다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "def test():\n",
+    "    print(\"Hello\")\n",
+    "\n",
+    "if __name__ == \"__main__\":\n",
+    "    test()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.4.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
